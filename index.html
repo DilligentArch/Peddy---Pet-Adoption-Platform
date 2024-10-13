@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peddy</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.13/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+        .lato-regular {
+            font-family: "Lato", sans-serif;
+
+        }
+    </style>
+
+</head>
+
+<body class="lato-regular max-w-screen-2xl">
+    <header class="max-w-screen-2xl">
+        <nav class="w-11/12 mx-auto flex mt-4 justify-between max-w-screen-2xl">
+            <div class="flex gap-2 ">
+                <img class=" lg:w-11" src="images/logo.webp" alt="">
+                <h2 class="font-black pt-3 lg:pt-0 text-xl lg:text-3xl">
+                    Peddy
+                </h2>
+            </div>
+            <div class="hidden lg:block">
+                <ul class="flex  gap-2 lg:gap-20 text-[#131313]  mt-3 lg:mr-20 ">
+                    <li> <a href="">Home </a> </li>
+                    <li> <a href="">Shop</a> </li>
+                    <li> <a href="">Contract</a> </li>
+                </ul>
+            </div>
+           <div class="flex gap-2">
+            <div class="border-2 inline rounded-full p-2">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6    ">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                </svg>
+            </div>
+
+            <div class="border-2 inline rounded-full p-2 lg:hidden">
+                <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6 ">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+            </div>
+           </div>
+           
+        </nav>
+        <!-- banner -->
+        <section class="w-11/12 mx-auto mt-10  text-center max-w-screen-2xl">
+            <p class="  text-[#13131399] font-semibold text-2xl  ">Bringing Families Together ❤️‍🔥
+            </p>
+            <h1 class="text-[#131313] leading-relaxed font-black text-5xl mt-4">
+                Your Path to Adoption <br> Starts Here
+            </h1>
+            <p class="text-[#131313] text-xl  mt-9">Start your journey to find the perfect pet companion today. With our carefully curated listings, you'll find pets ready to bring joy, love, and companionship into your life. Adopt today and make a difference!</p>
+           
+            <a class="btn btn-lg  bg-[#0E7A81] text-white mt-10" href="#main">View More</a>
+            <div class="w-10/12 mx-auto mt-9">
+                <img class="w-11/12 mx-auto" src="images/pet.webp" alt="">
+            </div>
+
+        </section>
+    </header>
+    <main id="main" class="max-w-screen-2xl">
+        <div class="w-11/12 mx-auto text-center">
+            <h1 class="text-[#131313] text-3xl font-bold mb-5">Adopt Your Best Friend</h1>
+            <p class="text-[#131313b3]">Find a loving home for a cat, dog, rabbit, or bird. Your new friend is waiting!</p>
+        </div>
+        <div id="CategoryButton" class="w-11/12 mx-auto mt-5 flex justify-around">
+            <!-- button -->
+
+        </div>
+
+        <div class="flex justify-between w-11/12 my-10 mx-auto">
+            <h2 class="font-bold text-xl">Best deals for you</h2>
+            <button class="btn bg-[#0E7A81] text-white " onclick="SortByPrice()" >
+                Sort by price
+            </button>
+        </div>
+        <!-- spinner -->
+        <div id="spin" class="w-11/12 mx-auto flex justify-center items-center hidden">
+            <span  class="loading loading-spinner text-accent"></span>
+        </div>
+
+        <div class="lg:flex w-11/12 mx-auto gap-2 mt-4 max-w-screen-2xl">
+            <section id="animals"
+                class="lg:w-9/12 mx-auto grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-5 py-10 border-2  rounded-lg px-5">
+            </section>
+            <div class="border lg:w-3/12 border-gray-400 p-2 col-span-full rounded-lg">
+                <section id="like" class=" grid grid-cols-1 md:grid-cols-2 md:col-span-2 md:gap-2"></section>
+            </div>
+        </div>
+    </main>
+    
+
+    <!-- Open the modal using ID.showModal() method -->
+<button class="btn hidden" onclick="customModal.showModal()">open modal</button>
+<dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <div id="modal-content">
+
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn bg-[#0E7A81] text-white ">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+    <footer class="bg-black text-white md:grid grid-cols-3 pl-4 max-w-screen-2xl">
+        <section class="w-11/12 mx-auto py-5 md:py-20">
+            <div class="flex gap-2 md:mb-5">
+                <img class=" w-11" src="images/logo.webp" alt="">
+                <h2 class="font-black pt-3 md:pt-0 text-xl lg:text-3xl ">
+                    Peddy
+                </h2>
+            </div>
+            <p>
+                Location: av. Washington 165, NY CA 54003 <br>
+                Phone: +31 85 964 47 25 <br>
+                Email: info@yourdomain.com
+                <br>
+                Openings hours: 9.00 AM - 5.00 PM
+            </p>
+            <div class="flex gap-4 mt-1">
+                <img class="w-5" src="images/facebook.png" alt="">
+                <img class="w-5" src="images/twitter.png" alt="">
+                <img class="w-5" src="images/youtube.png" alt="">
+                <img class="w-5" src="images/instagram.png" alt="">
+            </div>
+        </section>
+        <section class=" py-5 pl-5 md:py-20 md:ml-10 ">
+            <h1 class="mb-5 text-lg">
+                Useful links
+
+            </h1>
+            <ul class="text-[#ffffff99]">
+                <li><a href="">Home</a></li>
+                <li><a href="">About us</a></li>
+                <li><a href="">Animal</a></li>
+                <li><a href="">Foundation</a></li>
+                <li><a href="">Contract</a></li>
+            </ul>
+        </section>
+        <section class="md:py-20">
+            <h1 class="text-lg mb-4">
+                Drop a message
+            </h1>
+            <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs block" />
+
+            <button class="btn bg-[#0E7A81] text-white mt-10">Subscribe</button>
+        </section>
+    </footer>
+
+
+<button class="btn hidden" onclick="Modal.showModal()">open modal</button>
+<dialog id="Modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box p-0">
+    <div id="modal-content2">
+        <div class=" flex flex-col justify-center items-center text-center">
+            <img class="w-20" src="./images/handshake.png" alt="">
+            <p class="text-3xl font-bold text-center mb-3">Congrates</p>
+            <p class="font-extrabold mb-4">Thank you for choosing to adopt! Our team will contact you soon. </p>
+        </div>
+        <div id="modalCoundown" class="text-center text-4xl font-extrabold">
+            <p class="text-7xl font-bold">3</p>
+        </div>
+    </div>
+ 
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn bg-[#0E7A81] text-white">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+    <script src="script/front.js"></script>
+</body>
+
+</html>
